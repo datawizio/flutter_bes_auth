@@ -8,11 +8,11 @@ class BesSession {
   String refreshToken;
 
   BesSession({
-    this.scope,
-    this.expiresIn,
-    this.tokenType,
-    this.accessToken,
-    this.refreshToken,
+    required this.scope,
+    required this.expiresIn,
+    required this.tokenType,
+    required this.accessToken,
+    required this.refreshToken,
   });
 
   Map<String, dynamic> toMap() {
@@ -26,8 +26,6 @@ class BesSession {
   }
 
   factory BesSession.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return BesSession(
       scope: map['scope'],
       expiresIn: map['expires_in'],
@@ -42,7 +40,7 @@ class BesSession {
   }
 
   @override
-  String toString() => this.toJson();
+  String toString() => toJson();
 
   String toJson() => json.encode(toMap());
 }
